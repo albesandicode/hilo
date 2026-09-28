@@ -1,0 +1,11 @@
+# Dependencias y builds
+node_modules/
+dist/
+.angular/
+target/
+
+# Entorno local
+.env
+*.log
+.DS_Store
+Thumbs.db
