@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: hilo-api
+  datasource:
+    # Base de datos en memoria: se borra al parar la app y Flyway la vuelve a crear con los datos de demo.
+    url: jdbc:h2:mem:hilo;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    username: sa
+    password:
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none # el esquema lo gestiona Flyway (src/main/resources/db/migration)
+  h2:
+    console:
+      enabled: true # http://localhost:8080/h2-console (JDBC URL de arriba, usuario sa, sin contraseña)
+  mvc:
+    problemdetails:
+      enabled: true
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
