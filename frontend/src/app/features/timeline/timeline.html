@@ -1,0 +1,21 @@
+<section class="timeline">
+  @if (session.currentUserId() !== null) {
+    <app-composer (published)="onPublished($event)" />
+  } @else {
+    <p class="hint">Elige un usuario arriba para publicar.</p>
+  }
+
+  @if (loading()) {
+    <p class="hint">Cargando…</p>
+  } @else {
+    @for (post of posts(); track post.id) {
+      <app-post-card
+        [post]="post"
+        (likeToggled)="onLikeToggled($event)"
+        (deleteRequested)="onDeleteRequested($event)"
+      />
+    } @empty {
+      <p class="hint">Todavía no hay posts. ¡Sé el primero!</p>
+    }
+  }
+</section>

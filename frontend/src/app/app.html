@@ -1,0 +1,20 @@
+<header class="topbar">
+  <div class="topbar__inner">
+    <span class="brand">hilo</span>
+    <label class="switcher">
+      <span>Usuario (demo)</span>
+      <select (change)="onUserSelected($event)">
+        <option value="" disabled [selected]="session.currentUserId() === null">Elige…</option>
+        @for (user of users(); track user.id) {
+          <option [value]="user.id" [selected]="user.id === session.currentUserId()">
+            &#64;{{ user.username }}
+          </option>
+        }
+      </select>
+    </label>
+  </div>
+</header>
+
+<main class="content">
+  <router-outlet />
+</main>

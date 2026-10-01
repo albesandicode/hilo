@@ -1,0 +1,20 @@
+<form class="composer" (submit)="publish(); $event.preventDefault()">
+  <label class="sr-only" for="composer-text">Escribe un post</label>
+  <textarea
+    id="composer-text"
+    rows="3"
+    placeholder="¿Qué está pasando?"
+    [value]="text()"
+    (input)="onInput($event)"
+  ></textarea>
+  <div class="composer__footer">
+    <span
+      class="counter"
+      [class.counter--warn]="remaining() < 20"
+      [class.counter--over]="remaining() < 0"
+    >
+      {{ remaining() }}
+    </span>
+    <button type="submit" [disabled]="!canPublish()">Publicar</button>
+  </div>
+</form>

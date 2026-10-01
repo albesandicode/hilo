@@ -1,0 +1,25 @@
+<article class="card">
+  <header class="card__header">
+    <strong>{{ post().author.displayName }}</strong>
+    <span class="muted"
+      >&#64;{{ post().author.username }} · {{ post().createdAt | relativeTime }}</span
+    >
+  </header>
+
+  <p class="card__content">{{ post().content }}</p>
+
+  <footer class="card__actions">
+    <button
+      type="button"
+      class="like"
+      [class.like--active]="post().likedByMe"
+      [attr.aria-pressed]="post().likedByMe"
+      (click)="likeToggled.emit(post())"
+    >
+      ♥ {{ post().likeCount }}
+    </button>
+    @if (isMine()) {
+      <button type="button" class="delete" (click)="deleteRequested.emit(post())">Borrar</button>
+    }
+  </footer>
+</article>

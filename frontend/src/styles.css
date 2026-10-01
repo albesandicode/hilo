@@ -1,0 +1,58 @@
+/* Estilos globales de Hilo. Los colores viven en variables para que el modo oscuro solo tenga que redefinirlas. */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --text: #16181c;
+  --muted: #5b6470;
+  --border: #e3e6ea;
+  --accent: #e8590c;
+  --accent-text: #ffffff;
+  --danger: #c92a2a;
+  --radius: 12px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1114;
+    --surface: #171a1f;
+    --text: #e9ecef;
+    --muted: #9aa3ad;
+    --border: #2a2f36;
+    --accent: #ff7a2f;
+    --accent-text: #16181c;
+    --danger: #ff6b6b;
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  line-height: 1.5;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+a {
+  color: var(--accent);
+}
