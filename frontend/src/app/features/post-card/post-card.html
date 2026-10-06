@@ -6,7 +6,7 @@
     >
   </header>
 
-  <p class="card__content">{{ post().content }}</p>
+  <p class="card__content" [innerHTML]="post().content | linkify"></p>
 
   <footer class="card__actions">
     <button

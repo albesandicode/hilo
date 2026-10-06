@@ -1,11 +1,12 @@
 import { Component, computed, inject, input, output } from '@angular/core';
 import { Post } from '../../core/models';
 import { Session } from '../../core/session';
+import { LinkifyPipe } from '../../shared/linkify.pipe';
 import { RelativeTimePipe } from '../../shared/relative-time.pipe';
 
 @Component({
   selector: 'app-post-card',
-  imports: [RelativeTimePipe],
+  imports: [LinkifyPipe, RelativeTimePipe],
   templateUrl: './post-card.html',
   styleUrl: './post-card.css',
 })
