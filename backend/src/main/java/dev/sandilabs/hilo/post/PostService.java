@@ -27,7 +27,7 @@ public class PostService {
 
     @Transactional(readOnly = true)
     public PageResponse<PostDto> timeline(int page, int size, Long viewerId) {
-        return PageResponse.of(posts.findAllByOrderByCreatedAtAsc(PageRequest.of(page, size))
+        return PageResponse.of(posts.findAllByOrderByCreatedAtDesc(PageRequest.of(page, size))
                 .map(post -> toDto(post, viewerId)));
     }
 
